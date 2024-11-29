@@ -1,0 +1,19 @@
+It's better create Dockerfile
+create : Dockerfile, docker-compose.yaml
+
+Dockerfile
+FROM php:apache
+RUN docker-php-ext-install mysqli
+RUN apt-get update && apt-get install -y default-mysql-client
+
+WORKDIR /var/www/html
+docker-compose.yaml
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+check mysqli driver installation :
+php -m | grep mysqli
+
+make sure the app connected in the same network
+By default mysqli host is "db"
