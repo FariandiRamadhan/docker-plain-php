@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   php:
-    image: php:8.2-apache
+    build: ./
     container_name: php_docker
     ports:
       - "80:80"
@@ -16,7 +16,7 @@ services:
   db:
     image: mariadb:latest
     container_name: db_docker
-    restart: always
+    restart: unless-stopped
     ports:
       - "3306:3306"
     environment:
