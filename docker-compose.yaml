@@ -3,6 +3,7 @@ version: "3.9"
 services:
   php:
     build: ./
+    image: dockerphp-php:8.2-apache
     container_name: php_docker
     ports:
       - "80:80"
